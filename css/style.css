@@ -1,0 +1,126 @@
+/* font */
+@font-face {
+  font-family: "action_man_extendedbold";
+  src: url("../font/Action_Man_Extended_Bold-demo.html") format("woff2"),
+    url("../font/Action_Man_Extended_Bold-webfont.woff") format("woff");
+}
+body {
+  font: 16px/36px "action_man_extendedbold", "Arial Narrow", sans-serif;
+  background-color: #eee;
+}
+h1 {
+  font-size: 80px;
+  margin: 50px 0;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgb(123, 255, 111);
+}
+.container {
+  background-color: white;
+  width: 600px;
+  margin: auto;
+  padding: 30px;
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+.gallery li {
+  width: 100px;
+  height: 75px;
+  border-radius: 50%;
+  /* overflow: hidden; */
+  border: 5px solid #666;
+  float: left;
+  position: relative;
+  margin-right: 35px;
+}
+.gallery li a img {
+  border-radius: 50%;
+}
+.gallery li span {
+  display: block;
+  width: 100px;
+  height: 75px;
+  background-color: rgba(200, 200, 200, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  line-height: 75px;
+  font-size: 10px;
+  text-align: center;
+  color: #333;
+  opacity: 0;
+  transition: 0.3s;
+  transform: scale(0) rotatex(0);
+}
+.gallery li a:hover span {
+  opacity: 1;
+  transform: scale(1) rotatex(360deg);
+}
+.clear {
+  clear: both;
+}
+
+/* overlay */
+.overlay {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 9999999;
+  transition: 1s;
+  text-align: center;
+  padding: 100px 0;
+}
+.overlay:target {
+  width: auto;
+  height: auto;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.overlay img {
+  max-height: 100%;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
+}
+.overlay:target img {
+  animation: zoomin 1s;
+}
+.overlay .close {
+  top: 60px;
+  right: 45%;
+  position: absolute;
+  color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  line-height: 15px;
+  padding: 10px;
+  opacity: 0;
+}
+.overlay:target .close {
+  animation: wowo 0.5s 0.5s forwards;
+}
+/* animasi */
+
+@keyframes zoomin {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes wowo {
+  0% {
+    opacity: 0;
+    margin-top: -20px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
